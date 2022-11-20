@@ -1,0 +1,24 @@
+.card-container{
+    height:52vh;
+
+    width:100%;
+}
+.card-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:1%;
+   
+}
+.card-body{
+    padding: 0%;
+}
+.card-general{
+    border:none;
+    box-shadow: none;
+}
+.card-container h1 {
+    font-size: 30px;
+    margin: 0 auto;
+    width: 65%;
+}

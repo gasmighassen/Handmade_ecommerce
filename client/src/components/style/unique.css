@@ -1,0 +1,16 @@
+.unique-container{
+    width:90%;
+    margin:3% 0 0% 5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap:2%;
+}
+.unique-container p{
+   margin: 0;
+}
+.unique-container button{
+   background-color: transparent;
+   border:none;
+   display: flex;
+  padding: 0;
+}

@@ -3,7 +3,9 @@ import "./style/modal.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../redux/slices/userSlice";
-
+import { FcGoogle } from "react-icons/fc";
+import { AiFillFacebook,AiFillApple } from "react-icons/ai";
+import Dropdown from 'react-bootstrap/Dropdown';
 import Modal from "react-bootstrap/Modal";
 
 function ModalLogin({ show, setShow }) {
@@ -57,6 +59,14 @@ function ModalLogin({ show, setShow }) {
           >
             Connecter
           </button>
+          <div >
+      
+            <span style={{width:"98%",display:"flex",justifyContent:"center",margin:"2%"}}>OR</span> <Dropdown.Divider />
+          <button style={{borderRadius:"20px", backgroundColor:"transparent",padding:"2%",width:"100%",margin:"3% 0",display:"flex",alignItems:"center",gap:"5%",justifyContent:"center"}}> <FcGoogle/>Continue with Google</button></div>
+        
+          <button style={{borderRadius:"20px", backgroundColor:"transparent",padding:"2%",width:"100%",display:"flex",alignItems:"center",gap:"4%",justifyContent:"center"}}><AiFillFacebook/>Continue with Facebook</button>
+          <button style={{borderRadius:"20px", backgroundColor:"transparent",padding:"2%",width:"100%",margin:"3% 0",display:"flex",alignItems:"center",gap:"4%",justifyContent:"center"}}><AiFillApple/>Continue with Apple</button>
+          <p style={{fontSize:'13px',marginTop:'5%'}}>By clicking Sign in or Continue with Google, Facebook, or Apple, you agree to Etsy's Terms of Use and Privacy Policy. Etsy may send you communications; you may change your preferences in your account settings. We'll never post without your permission.</p>
         </Modal.Body>
       </Modal>
     </div>

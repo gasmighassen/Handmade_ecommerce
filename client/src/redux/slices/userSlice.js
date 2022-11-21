@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const userRegister = createAsyncThunk("admin/register", async (user) => {
+export const userRegister = createAsyncThunk("user/register", async (register) => {
   try {
     let response = await axios.post(
-      "http://localhost:5000/admin/register",
-      user
+      "http://localhost:5000/user/register",
+      register
     );
     return await response;
   } catch (error) {
@@ -108,7 +108,7 @@ export const userSlice = createSlice({
     [userRegister.fulfilled]: (state, action) => {
       state.status = "success";
       state.isLoading = false;
-      /* state.user = action.payload.data?.newUserToken; */
+       state.user = action.payload.data?.newUserToken; 
     },
     [userRegister.rejected]: (state) => {
       state.status = "fail";

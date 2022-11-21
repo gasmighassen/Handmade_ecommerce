@@ -52,7 +52,6 @@ router.post("/register", registerRules(), validation, async (req, res) => {
   try {
     const newUser = new User({
       name,
-     
       email,
       password,
       isAdmin,

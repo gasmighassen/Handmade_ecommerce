@@ -68,8 +68,9 @@ const Navbar = () => {
       </div>
       <div className="nav-links">
         <Dropdown>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            Dropdown Button
+          <Dropdown.Toggle id="dropdown-basic">
+          Cyber Sales Event
+
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
@@ -79,8 +80,8 @@ const Navbar = () => {
           </Dropdown.Menu>
         </Dropdown>
         <Dropdown>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            Dropdown Button
+          <Dropdown.Toggle id="dropdown-basic">
+          Jewelry & Accessories
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
@@ -90,8 +91,9 @@ const Navbar = () => {
           </Dropdown.Menu>
         </Dropdown>
         <Dropdown>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            Dropdown Button
+          <Dropdown.Toggle id="dropdown-basic">
+          Clothing & Shoes
+
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
@@ -101,8 +103,9 @@ const Navbar = () => {
           </Dropdown.Menu>
         </Dropdown>
         <Dropdown>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            Dropdown Button
+          <Dropdown.Toggle id="dropdown-basic">
+          Home & Living
+
           </Dropdown.Toggle>
 
           <Dropdown.Menu>

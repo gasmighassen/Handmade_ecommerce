@@ -19,6 +19,11 @@ padding: 0 5%;
 .left{
     width:10%;
 }
+#dropdown-basic{
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: capitalize;
+}
 .left img{
 width:80px;
 height: 40px;

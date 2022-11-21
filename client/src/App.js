@@ -1,5 +1,5 @@
 import "./App.css";
-import Dashboard from "./components/Dashboard";
+import ProductDetails from "./components/ProductDetails";
 import Home from "./components/Home";
 
 import { Routes, Route } from "react-router-dom";
@@ -10,9 +10,10 @@ function App() {
     <Routes>
       azdazdazdazdazd
       <Route path="/" element={<Home />} />
-      <Route element={<PrivateRoute />}>
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Route>
+      <Route path="/product" element={<ProductDetails />} />
+      {/* <Route element={<PrivateRoute />}>
+        <Route path="/product" element={<ProductDetails />} />
+      </Route> */}
     </Routes>
   );
 }

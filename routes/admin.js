@@ -11,15 +11,14 @@ const isAuth = require("../middelwares/passport");
 //REGISTER
 
 router.post("/register", registerRules(), validation, async (req, res) => {
-  const { name, lastName, email, password, isAdmin, phone } = req.body;
+  const { name, email, password, isAdmin } = req.body;
   try {
     const newUser = new User({
       name,
-      lastName,
+
       email,
       password,
       isAdmin,
-      phone,
     });
 
     // check if the email exist

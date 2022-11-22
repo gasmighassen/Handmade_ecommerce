@@ -1,6 +1,6 @@
 const express = require("express");
 const product = require("../models/product");
-const productType = require("../models/productType");
+
 const router = express.Router();
 
 // add product
@@ -18,24 +18,6 @@ router.post("/addproduct", async (req, res) => {
     });
     let result = await newProduct.save();
     res.send({ result: result, msg: "product added" });
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-// add product type
-router.post("/addType", async (req, res) => {
-  const { ProdType } = req.body;
-  try {
-    const searchedType = await productType.findOne({ ProdType });
-    if (searchedType) {
-      return res.status(400).send({ msg: "Type already exist" });
-    }
-    const newType = new productType({
-      ProdType,
-    });
-    let result = await newType.save();
-    res.send({ result: result, msg: "Type added" });
   } catch (error) {
     console.log(error);
   }

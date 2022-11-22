@@ -16,13 +16,16 @@ const UserSchema = new schema(
       type: String,
       required: true,
     },
-  
+
     comands: {
       type: mongoose.Types.ObjectId,
       ref: "Comande",
       required: false,
     },
-    isAdmin: false,
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );

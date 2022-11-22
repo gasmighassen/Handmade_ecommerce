@@ -3,17 +3,16 @@ import ProductDetails from "./components/ProductDetails";
 import Home from "./components/Home";
 
 import { Routes, Route } from "react-router-dom";
-import PrivateRoute from "./privateRoute/PrivateRoutes";
+
+import Dashbord from "./components/Dashbord";
 
 function App() {
   return (
     <Routes>
-      azdazdazdazdazd
       <Route path="/" element={<Home />} />
       <Route path="/product" element={<ProductDetails />} />
-      {/* <Route element={<PrivateRoute />}>
-        <Route path="/product" element={<ProductDetails />} />
-      </Route> */}
+
+      <Route path="/dashbord" element={<Dashbord />} />
     </Routes>
   );
 }

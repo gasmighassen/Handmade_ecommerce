@@ -132,3 +132,8 @@ height: 40px;
     transform: translate3d(0px, 28px, 0px) !important;
  border-radius: 0 !important;
   }
+  #dropdown-basic {
+    font-size: 12px;
+    font-weight: 100;
+    text-transform: capitalize;
+  }

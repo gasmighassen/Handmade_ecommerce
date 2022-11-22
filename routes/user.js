@@ -55,7 +55,6 @@ router.post("/register", registerRules(), validation, async (req, res) => {
       email,
       password,
       isAdmin,
-   
     });
 
     // check if the email exist

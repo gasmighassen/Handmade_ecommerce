@@ -16,13 +16,22 @@ export const addProduct = createAsyncThunk(
   }
 );
 
-export const addType = createAsyncThunk("product/addType", async (Type) => {
+export const addType = createAsyncThunk("types/addType", async (Type) => {
   try {
     let response = await axios.post(
-      "http://localhost:5000/product/addType",
+      "http://localhost:5000/types/addType",
       Type
     );
-    return await response;
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+export const getType = createAsyncThunk("types/types", async () => {
+  try {
+    let response = await axios.get("http://localhost:5000/types/types");
+    return response;
   } catch (error) {
     console.log(error);
   }
@@ -31,6 +40,7 @@ export const addType = createAsyncThunk("product/addType", async (Type) => {
 export const allProducts = createAsyncThunk(
   "product/allProducts",
   async (Type) => {
+    console.log(Type);
     try {
       let response = await axios.get(
         "http://localhost:5000/product/allProducts",
@@ -45,6 +55,7 @@ export const allProducts = createAsyncThunk(
 
 const initialState = {
   product: [],
+  types: [],
   status: "",
   isLoading: false,
 };
@@ -88,6 +99,19 @@ export const productSlice = createSlice({
       state.product = action.payload?.data?.products;
     },
     [allProducts.rejected]: (state) => {
+      state.status = "fail";
+      state.isLoading = false;
+    },
+    [getType.pending]: (state) => {
+      state.status = "pending";
+      state.isLoading = true;
+    },
+    [getType.fulfilled]: (state, action) => {
+      state.status = "success";
+      state.isLoading = false;
+      state.types = action.payload?.data?.types;
+    },
+    [getType.rejected]: (state) => {
       state.status = "fail";
       state.isLoading = false;
     },

@@ -2,7 +2,6 @@ const { check, validationResult } = require("express-validator");
 
 exports.registerRules = () => [
   check("name", "name is required").notEmpty(),
-  check("lastName", "lastname is required").notEmpty(),
   check("email", "email is required").notEmpty(),
   check("email", "check email again").isEmail(),
   check("password", "password must be  between 6 and 12 character").isLength({

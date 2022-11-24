@@ -17,6 +17,7 @@ app.use("/admin", require("./routes/admin"));
 app.use("/product", require("./routes/product"));
 app.use("/comande", require("./routes/comande"));
 app.use("/gallerie", require("./routes/gallerie"));
+app.use("/types", require("./routes/types"));
 
 app.listen(process.env.PORT, (err) => {
   err

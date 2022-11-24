@@ -64,22 +64,20 @@ const footer = () => {
         >
           Go to Help Center
         </button>
-        <div
-          style={{  width: "100%", height: "100%" }}
-        >
+        <div style={{ width: "100%", height: "100%" }}>
           <div className="under-footer">
             <h4>
               Yes! Send me exclusive offers, unique gift ideas, and personalized
               tips for shopping and selling on Etsy.
             </h4>
-            <form class="subscription">
+            <form className="subscription">
               <input
-                class="add-email"
+                className="add-email"
                 type="email"
                 placeholder="subscribe@me.now"
               ></input>
-              <button class="submit-email" type="button">
-                <span class="before-submit">Subscribe</span>
+              <button className="submit-email" type="button">
+                <span className="before-submit">Subscribe</span>
               </button>
             </form>
           </div>
@@ -88,7 +86,7 @@ const footer = () => {
       <div className="under-footer-body">
         <div className="mini-footer">
           <h3>Shop</h3>
-          <button >Gift cards</button>
+          <button>Gift cards</button>
           <button>Sitemap</button>
           <button>Etsy blog</button>
           <button>Etsy United Kingdom</button>
@@ -118,7 +116,10 @@ const footer = () => {
           <h3>Help</h3>
           <button>Help Center</button>
           <button>Privacy settings</button>
-          <button style={{border:"3px solid white",borderRadius:'20px'}}> Download the Etsy App</button>
+          <button style={{ border: "3px solid white", borderRadius: "20px" }}>
+            {" "}
+            Download the Etsy App
+          </button>
           <div className="mini-right-footer">
             <AiFillFacebook />
             <GrInstagram />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style/navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -9,8 +9,11 @@ import { AiOutlineBell } from "react-icons/ai";
 import { BiDownArrow } from "react-icons/bi";
 import Dropdown from "react-bootstrap/Dropdown";
 import ModalLogin from "./ModalLogin";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
+  const types = useSelector((state) => state.product?.types);
+  console.log(types);
   const [show, setShow] = useState(false);
   const isAuth = localStorage.getItem("token");
 
@@ -18,7 +21,10 @@ const Navbar = () => {
     <div className="navbar">
       <div className="combo">
         <div className="left">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Etsy_logo.svg/2560px-Etsy_logo.svg.png" />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Etsy_logo.svg/2560px-Etsy_logo.svg.png"
+            alt=""
+          />
         </div>
 
         <div className="searchP">
@@ -53,7 +59,10 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="ima">
-            <img src=" https://cdn-icons-png.flaticon.com/512/197/197560.png" />
+            <img
+              src=" https://cdn-icons-png.flaticon.com/512/197/197560.png"
+              alt=""
+            />
           </div>
         )}
 
@@ -67,53 +76,19 @@ const Navbar = () => {
         </div>
       </div>
       <div className="nav-links">
-        <Dropdown>
-          <Dropdown.Toggle id="dropdown-basic">
-          Cyber Sales Event
+        {types?.map((type) => (
+          <Dropdown>
+            <Dropdown.Toggle id="dropdown-basic">
+              {type.ProdType}
+            </Dropdown.Toggle>
 
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        <Dropdown>
-          <Dropdown.Toggle id="dropdown-basic">
-          Jewelry & Accessories
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        <Dropdown>
-          <Dropdown.Toggle id="dropdown-basic">
-          Clothing & Shoes
-
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        <Dropdown>
-          <Dropdown.Toggle id="dropdown-basic">
-          Home & Living
-
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+            <Dropdown.Menu>
+              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        ))}
       </div>
       {show && <ModalLogin setShow={setShow} show={show} />}
     </div>

@@ -1,21 +1,25 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const userRegister = createAsyncThunk("admin/register", async (user) => {
-  try {
-    let response = await axios.post(
-      "http://localhost:5000/admin/register",
-      user
-    );
-    return await response;
-  } catch (error) {
-    console.log(error);
+export const userRegister = createAsyncThunk(
+  "user/register",
+  async (register) => {
+    console.log(register);
+    try {
+      let response = await axios.post(
+        "http://localhost:5000/user/register",
+        register
+      );
+      return await response;
+    } catch (error) {
+      console.log(error);
+    }
   }
-});
-export const userLogin = createAsyncThunk("user/login", async (user) => {
+);
+export const userLogin = createAsyncThunk("user/login", async (login) => {
   try {
-    let response = await axios.post("http://localhost:5000/user/login", user);
-    return await response.data;
+    let response = await axios.post("http://localhost:5000/user/login", login);
+    return await response;
   } catch (error) {
     console.log(error);
   }
@@ -108,7 +112,7 @@ export const userSlice = createSlice({
     [userRegister.fulfilled]: (state, action) => {
       state.status = "success";
       state.isLoading = false;
-      /* state.user = action.payload.data?.newUserToken; */
+      state.user = action.payload.data?.newUserToken;
     },
     [userRegister.rejected]: (state) => {
       state.status = "fail";
@@ -121,8 +125,8 @@ export const userSlice = createSlice({
     [userLogin.fulfilled]: (state, action) => {
       state.status = "success";
       state.isLoading = false;
-      state.user = action.payload.user;
-      localStorage.setItem("token", action.payload.token);
+      state.user = action.payload.data.user;
+      localStorage.setItem("token", action.payload.data.token);
     },
     [userLogin.rejected]: (state) => {
       state.status = "fail";

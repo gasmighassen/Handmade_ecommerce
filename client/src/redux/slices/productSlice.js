@@ -30,11 +30,11 @@ export const addType = createAsyncThunk("product/addType", async (Type) => {
 
 export const allProducts = createAsyncThunk(
   "product/allProducts",
-  async (Type) => {
+  async () => {
     try {
       let response = await axios.get(
         "http://localhost:5000/product/allProducts",
-        Type
+        
       );
       return await response;
     } catch (error) {

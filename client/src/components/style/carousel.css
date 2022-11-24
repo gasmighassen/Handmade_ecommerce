@@ -1,3 +1,4 @@
+
 .main {
   display: flex;
 
@@ -15,5 +16,6 @@
 }
 
 .thumbnail {
+
   padding-left: 20px;
 }

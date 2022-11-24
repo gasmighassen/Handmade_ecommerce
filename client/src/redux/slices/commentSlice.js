@@ -16,6 +16,7 @@ export const addComment = createAsyncThunk(
   }
 );
 
+
 export const getProdComments = createAsyncThunk(
   "comment/getcomment",
   async (id) => {
@@ -29,6 +30,7 @@ export const getProdComments = createAsyncThunk(
     }
   }
 );
+
 
 const initialState = {
   comment: [],
@@ -53,6 +55,7 @@ export const commentSlice = createSlice({
       state.status = "fail";
       state.isLoading = false;
     },
+
     [getProdComments.pending]: (state) => {
       state.status = "pending";
       state.isLoading = true;
@@ -66,6 +69,7 @@ export const commentSlice = createSlice({
       state.status = "fail";
       state.isLoading = false;
     },
+
   },
 });
 

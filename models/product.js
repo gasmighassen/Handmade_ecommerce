@@ -11,10 +11,11 @@ const ProductSchema = new schema(
       type: mongoose.Types.ObjectId,
       ref: "ProductType",
     },
-    gallerie: {
-      type: mongoose.Types.ObjectId,
-      ref: "Gallerie",
-    },
+    gallerie: [
+      {
+        url: String,
+      },
+    ],
     Price: {
       type: Number,
       required: true,
@@ -24,6 +25,7 @@ const ProductSchema = new schema(
       required: true,
       default: 0,
     },
+
     quantity: {
       type: Number,
       required: true,

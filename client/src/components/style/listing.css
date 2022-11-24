@@ -1,0 +1,35 @@
+.aregato{
+    display: flex;
+    width:100%;
+    justify-content: space-between;
+    
+}
+.details-list{
+    margin-top:30px;
+    width:38%;
+    display: flex;
+    flex-direction: column;
+    gap:3%;
+    margin-right: 5%;
+}
+.add{
+    background-color: transparent;
+    border: none;
+}
+.add:hover{
+    background-color: lightgray;
+    border: none;
+padding: 5px;
+    border-radius: 30px;
+}
+.yamate{
+    width:60%;
+}
+.comment{
+    margin-left: 5%;
+
+
+}
+.comment input{
+    margin:1% 0%;
+}

@@ -4,6 +4,8 @@ import Home from "./components/Home";
 
 import { Routes, Route } from "react-router-dom";
 
+import PrivateRoute from "./privateRoute/PrivateRoutes";
+import Listing from "./components/Listing";
 import Dashbord from "./components/Dashbord";
 
 function App() {
@@ -12,7 +14,12 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/product" element={<ProductDetails />} />
 
+      <Route path="/listing" element={<Listing />} />
       <Route path="/dashbord" element={<Dashbord />} />
+
+      {/* <Route element={<PrivateRoute />}>
+        <Route path="/product" element={<ProductDetails />} />
+      </Route> */}
     </Routes>
   );
 }

@@ -4,7 +4,10 @@ import Home from "./components/Home";
 
 import { Routes, Route } from "react-router-dom";
 
-import Dashbord from "./components/Dashbord";
+import PrivateRoute from "./privateRoute/PrivateRoutes";
+import Listing from "./components/Listing";
+import Dashboard from "./components/Dashboard";
+
 
 function App() {
   return (
@@ -12,7 +15,13 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/product" element={<ProductDetails />} />
 
-      <Route path="/dashbord" element={<Dashbord />} />
+      <Route path="/listing" element={<Listing />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      
+      {/* <Route element={<PrivateRoute />}>
+        <Route path="/product" element={<ProductDetails />} />
+      </Route> */}
+
     </Routes>
   );
 }

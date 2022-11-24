@@ -6,7 +6,8 @@ import { Routes, Route } from "react-router-dom";
 
 import PrivateRoute from "./privateRoute/PrivateRoutes";
 import Listing from "./components/Listing";
-import Dashboard from "./components/Dashboard";
+
+import Dashbord from "./components/Dashbord";
 
 
 function App() {
@@ -16,8 +17,9 @@ function App() {
       <Route path="/product" element={<ProductDetails />} />
 
       <Route path="/listing" element={<Listing />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      
+
+      <Route path="/dashbord" element={<Dashbord />} />
+
       {/* <Route element={<PrivateRoute />}>
         <Route path="/product" element={<ProductDetails />} />
       </Route> */}

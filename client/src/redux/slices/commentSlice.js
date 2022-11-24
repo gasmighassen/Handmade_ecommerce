@@ -16,20 +16,20 @@ export const addComment = createAsyncThunk(
   }
 );
 
-export const getallComment = createAsyncThunk(
-    "comment/getcomment",
-    async () => {
-      try {
-        let response = await axios.get(
-          "http://localhost:5000/product/getcomment",
-          
-        );
-        return await response;
-      } catch (error) {
-        console.log(error);
-      }
+
+export const getProdComments = createAsyncThunk(
+  "comment/getcomment",
+  async (id) => {
+    try {
+      let response = await axios.get(
+        `http://localhost:5000/product/getcomment/${id}`
+      );
+      return await response;
+    } catch (error) {
+      console.log(error);
     }
-  );
+  }
+);
 
 
 const initialState = {
@@ -55,20 +55,20 @@ export const commentSlice = createSlice({
       state.status = "fail";
       state.isLoading = false;
     },
-    [getallComment.pending]: (state) => {
-        state.status = "pending";
-        state.isLoading = true;
-      },
-      [getallComment.fulfilled]: (state, action) => {
-        state.status = "success";
-        state.isLoading = false;
-        state.comment = action.payload?.data?.comment;
-      },
-      [getallComment.rejected]: (state) => {
-        state.status = "fail";
-        state.isLoading = false;
-      },
-   
+
+    [getProdComments.pending]: (state) => {
+      state.status = "pending";
+      state.isLoading = true;
+    },
+    [getProdComments.fulfilled]: (state, action) => {
+      state.status = "success";
+      state.isLoading = false;
+      state.comment = action.payload?.data?.comment;
+    },
+    [getProdComments.rejected]: (state) => {
+      state.status = "fail";
+      state.isLoading = false;
+    },
 
   },
 });

@@ -9,11 +9,13 @@ function AddProductType() {
     <div className="proTypeAdd">
       <div className="typeAdd">
         <h3>add new type of product</h3>
+
         <input
           type="text"
           name="typeProd"
           onChange={(e) => setType({ ...Type, ProdType: e.target.value })}
         />
+
         <button onClick={() => dispatch(addType(Type))}> Add</button>
       </div>
     </div>

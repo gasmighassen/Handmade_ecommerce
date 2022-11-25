@@ -22,6 +22,15 @@ const UserSchema = new schema(
       ref: "Comande",
       required: false,
     },
+    shippingAdresse: {
+      type: mongoose.Types.ObjectId,
+      ref: "Shipping",
+      required: false,
+    },
+    isVendor: {
+      type: Boolean,
+      default: false,
+    },
     isAdmin: {
       type: Boolean,
       default: false,

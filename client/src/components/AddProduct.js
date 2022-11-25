@@ -12,8 +12,9 @@ function AddProduct() {
   const [product, setproduct] = useState({
     ProdName: "",
     ProdType: "",
-    gallerie: null,
+    thumbnail: "",
     Price: 0,
+    brand: "",
   });
 
   const bar = document.getElementById("progress-bar");
@@ -56,12 +57,10 @@ function AddProduct() {
         )
         .then((response) => {
           const data = response.data;
-          const gallerie = {
-            url: data.secure_url,
-          };
-          console.log(gallerie);
+          const thumbnail = data.secure_url;
+
           setupload([]);
-          setproduct((product.gallerie = gallerie));
+          setproduct((product.thumbnail = thumbnail));
           console.log(product);
           uploadedFiles.push(data);
           progressDiv.style.display = "none";
@@ -81,6 +80,12 @@ function AddProduct() {
         type="text"
         name="ProdName"
         onChange={(e) => setproduct({ ...product, ProdName: e.target.value })}
+      />
+      <h3>Brand</h3>
+      <input
+        type="text"
+        name="ProdName"
+        onChange={(e) => setproduct({ ...product, brand: e.target.value })}
       />
       <h5>
         Product Type

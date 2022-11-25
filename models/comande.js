@@ -3,7 +3,7 @@ const schema = mongoose.Schema;
 
 const ComandeSchema = new schema(
   {
-    userId: {
+    user: {
       type: mongoose.Types.ObjectId,
       ref: "User",
     },

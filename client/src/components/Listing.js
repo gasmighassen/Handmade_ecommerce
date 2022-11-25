@@ -7,16 +7,19 @@ import Carousel from "./Carousel";
 import { useDispatch } from "react-redux";
 import ReactStars from "react-rating-stars-component";
 import { addComment } from "../redux/slices/commentSlice";
+import { useParams, useLocation } from "react-router-dom";
 const Listing = () => {
+  const params = useParams();
+  const location = useLocation();
   const [comment, setComment] = useState("");
   const dispatch = useDispatch();
-  console.log(comment);
+  const product = location.state;
   return (
     <div>
       <Navbar />
       <div className="aregato">
         <div className="yamate">
-          <Carousel />
+          <Carousel prodId={product._id} />
           <div
             style={{
               display: "flex",
@@ -60,7 +63,7 @@ const Listing = () => {
             Made to Order Cotton Candy Mug | Handmade Mugs | Handmade Pottery |
             Handmade Ceramic Mug | Handmade Coffee Mug Tea Cup | Pottery Gift
           </p>
-          <h1>€46.39</h1>
+          <h1>{product.Price}$</h1>
           <button
             style={{
               borderRadius: "30px",

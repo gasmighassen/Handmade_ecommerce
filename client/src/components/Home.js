@@ -6,13 +6,14 @@ import Navbar from "./Navbar";
 import Promotion from "./Promotion";
 import { useDispatch } from "react-redux";
 import { userCurrent } from "../redux/slices/userSlice";
-import { getType } from "../redux/slices/productSlice";
+import { allProducts, getType } from "../redux/slices/productSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(userCurrent());
     dispatch(getType());
+    dispatch(allProducts());
   }, []);
 
   return (

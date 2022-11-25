@@ -5,7 +5,7 @@ const router = express.Router();
 
 // add product
 router.post("/addproduct", async (req, res) => {
-  const { ProdName, ProdType, gallerie, Price, brand } = req.body;
+  const { ProdName, ProdType, thumbnail, Price, brand } = req.body;
   try {
     const searchedProduct = await product.findOne({ ProdName });
     if (searchedProduct) {
@@ -14,7 +14,7 @@ router.post("/addproduct", async (req, res) => {
     const newProduct = new product({
       ProdName,
       ProdType,
-      gallerie,
+      thumbnail,
       Price,
       brand,
     });

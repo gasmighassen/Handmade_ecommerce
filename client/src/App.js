@@ -4,7 +4,6 @@ import Home from "./components/Home";
 
 import { Routes, Route } from "react-router-dom";
 
-import PrivateRoute from "./privateRoute/PrivateRoutes";
 import Listing from "./components/Listing";
 
 import Dashbord from "./components/Dashbord";

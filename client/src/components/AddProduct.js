@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addProduct } from "../redux/slices/productSlice";
+import { addProduct, allProducts } from "../redux/slices/productSlice";
 
 import axios from "axios";
 function AddProduct() {
@@ -8,6 +8,9 @@ function AddProduct() {
   const types = useSelector((state) => state.product?.types);
   let [uploadedFiles, setuploadedFiles] = useState([]);
   const [upload, setupload] = useState([]);
+  useEffect(() => {
+    dispatch(allProducts());
+  }, []);
 
   const [product, setproduct] = useState({
     ProdName: "",
@@ -69,7 +72,7 @@ function AddProduct() {
     });
     // Once all the files are uploaded
     await axios.all(uploaders).then(async (result) => {
-      // ... perform after upload is successful operation
+      dispatch(allProducts());
     });
   };
 

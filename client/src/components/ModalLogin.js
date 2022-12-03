@@ -67,13 +67,7 @@ function ModalLogin({ show, setShow }) {
               className="loginBtnn"
               onClick={() => {
                 dispatch(userLogin(login));
-
-                setTimeout(() => {
-                  navigate("/");
-                }, 1000);
-                setTimeout(() => {
-                  window.location.reload();
-                }, 1000);
+                handleClose();
               }}
             >
               Connecter

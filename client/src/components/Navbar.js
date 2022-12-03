@@ -10,12 +10,15 @@ import { BiDownArrow } from "react-icons/bi";
 import Dropdown from "react-bootstrap/Dropdown";
 import ModalLogin from "./ModalLogin";
 import { useDispatch, useSelector } from "react-redux";
+import { logout, userCurrent } from "../redux/slices/userSlice";
 
 const Navbar = () => {
   const types = useSelector((state) => state.product?.types);
-  console.log(types);
+  const current = useSelector((state) => state.user?.user);
+  const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const isAuth = localStorage.getItem("token");
+  useEffect(() => {}, [current]);
 
   return (
     <div className="navbar">
@@ -74,6 +77,16 @@ const Navbar = () => {
           {" "}
           <BsCart4 />
         </div>
+        {isAuth ? (
+          <button
+            onClick={() => {
+              dispatch(logout());
+            }}
+            className="logoutBtn"
+          >
+            Deconnecter
+          </button>
+        ) : null}
       </div>
       <div className="nav-links">
         {types?.map((type) => (

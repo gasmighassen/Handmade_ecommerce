@@ -1,7 +1,7 @@
 import "./App.css";
 import ProductDetails from "./components/ProductDetails";
 import Home from "./components/Home";
-
+import ConfigStep from "./store/storeConfig/ConfigStep";
 import { Routes, Route } from "react-router-dom";
 
 import Listing from "./components/Listing";
@@ -13,7 +13,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/product" element={<ProductDetails />} />
-
+      <Route path="/store" element={<ConfigStep />} />
       <Route path="/listing/:id" element={<Listing />} />
 
       <Route path="/dashbord" element={<Dashbord />} />
